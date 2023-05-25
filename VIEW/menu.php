@@ -27,7 +27,7 @@
         <li><a href="#!" class="light-blue-text">Alterar</a></li>
         <li><a href="#!" class="light-blue-text">Cadastrar</a></li>
         <li class="divider"></li>
-        <li><a href="#!" class="light-blue-text">Lista</a></li>
+        <li><a href="\hospital\VIEW\Medico\lstMedico.php" class="light-blue-text">Lista</a></li>
     </ul>
     <ul id="paciente" class="dropdown-content">
         <li><a href="#!" class="light-blue-text">Detalhamento</a></li>
