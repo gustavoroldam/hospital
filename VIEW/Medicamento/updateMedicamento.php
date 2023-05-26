@@ -5,6 +5,7 @@
     $medicamento = new \MODEL\Medicamento();
     $bll = new \BLL\bllMedicamento();
 
+    $medicamento->setId($_POST['txtId']);
     $medicamento->setNome($_POST['txtNome']);
     $medicamento->setValidade($_POST['txtValidade']);
     $medicamento->setQtde($_POST['txtQtde']);
