@@ -68,7 +68,7 @@ $lstMedico = $bll->Select();
                 <td><?php echo $medico->getCrm(); ?></td>
                 <td><?php echo $medico->getNacimento(); ?></td>
                 <td><?php echo $medico->getTelefone(); ?></td>
-                <td> <a class="btn-floating btn-small waves-effect waves-light blue" onclick="JavaScript:location.href='detoperador.php?id=' +
+                <td> <a class="btn-floating btn-small waves-effect waves-light blue" onclick="JavaScript:location.href='detalheMedico.php?id=' +
                      <?php echo $medico->getId(); ?>"> <!-- "?id=..." passsa os valores para o edit -->
                         <i class="material-icons">list</i>
                     </a>
@@ -79,7 +79,7 @@ $lstMedico = $bll->Select();
                     </a>
 
                     <a class="btn-floating btn-small waves-effect waves-light red" type="button" 
-                        onclick="JavaScript:remover( <?php echo $medico->getId();?> );"> <i class="material-icons">delete_forever</i>
+                        onclick="JavaScript:remover( <?php echo $medico->getId();?> , '<?php echo $medico->getNome();?>' );"> <i class="material-icons">delete_forever</i>
                     </a>
                 </td>
             </tr>
@@ -96,8 +96,8 @@ $lstMedico = $bll->Select();
 </html>
 
 <script>
-    function remover(id) {
-        if (confirm('Excluir o Medico' + id + '?')) {
+    function remover(id, nome) {
+        if (confirm('Excluir o Medico "' + nome + '"?')) {
             location.href = 'removerMedico.php?id=' + id;
         }
     }
