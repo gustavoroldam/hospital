@@ -1,12 +1,12 @@
 <?php
-    include_once '../../MODEL/medico.php';
-    include_once '../../BLL/bllMedico.php';
+    include_once '../../MODEL/medicamento.php';
+    include_once '../../BLL/bllMedicamento.php';
 
     $id = $_GET['id'];
 
-    $bll = new BLL\bllMedico();
+    $bll = new BLL\bllMedicamento();
     $bll->Delete($id);
 
-    header("location: lstMedico.php"); // Ir para a lista
+    header("location: lstMedicamento.php"); // Ir para a lista
 
 ?>

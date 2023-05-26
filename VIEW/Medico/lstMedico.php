@@ -27,7 +27,7 @@ $lstMedico = $bll->Select();
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-    <title>Lista Medico</title>
+    <title>Listar Medicos</title>
 </head>
 
 <style>
@@ -44,7 +44,7 @@ $lstMedico = $bll->Select();
     include_once '../menu.php';
     ?>
 
-    <h1 class="titulo">Listar Operadores</h1>
+    <h1 class="titulo">Listar Medicos</h1>
 
     <table class="striped blue lighten-2">
         <tr>

@@ -41,7 +41,7 @@
         <li><a href="#!" class="light-blue-text">Alterar</a></li>
         <li><a href="#!" class="light-blue-text">Cadastrar</a></li>
         <li class="divider"></li>
-        <li><a href="#!" class="light-blue-text">Lista</a></li>
+        <li><a href="\hospital\VIEW\Medicamento\lstMedicamento.php" class="light-blue-text">Lista</a></li>
     </ul>
     <nav>
         <div class="nav-wrapper light-blue darken-4">

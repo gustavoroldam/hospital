@@ -8,8 +8,6 @@ $bll = new \BLL\bllMedico();
 
 $medico = $bll->SelectId($id);
 
-//echo $operador->getNome();
-
 ?>
 
 <!DOCTYPE html>

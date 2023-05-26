@@ -1,11 +1,11 @@
 <?php
 
-use BLL\bllMedico;
+use BLL\bllMedicamento;
 
-include_once 'C:\xampp\htdocs\hospital\BLL\bllMedico.php';
+include_once 'C:\xampp\htdocs\hospital\BLL\bllMedicamento.php';
 
-$bll = new \BLL\bllMedico();
-$lstMedico = $bll->Select();
+$bll = new \BLL\bllMedicamento();
+$lstMedicamento = $bll->Select();
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +27,7 @@ $lstMedico = $bll->Select();
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-    <title>Lista Medico</title>
+    <title>Listar Medicamentos</title>
 </head>
 
 <style>
@@ -44,42 +44,44 @@ $lstMedico = $bll->Select();
     include_once '../menu.php';
     ?>
 
-    <h1 class="titulo">Listar Operadores</h1>
+    <h1 class="titulo">Listar Medicamentos</h1>
 
     <table class="striped blue lighten-2">
         <tr>
             <th>ID</th>
             <th>NOME</th>
-            <th>CRM</th>
-            <th>DATA DE NACIMENTO</th>
-            <th>TELEFONE</th>
+            <th>VALIDADE</th>
+            <th>QUANTIDADE</th>
+            <th>UNIDADE</th>
+            <th>PREÇO</th>
             <th>FUNÇÕES -
-                <a class="btn-floating btn-small waves-effect waves-light green" onclick="JavaScript:location.href='inserirMedico.php'"> <!-- onclick -> Serve para Mudar de Tela -->
+                <a class="btn-floating btn-small waves-effect waves-light green" onclick="JavaScript:location.href='inserirMedicamento.php'"> <!-- onclick -> Serve para Mudar de Tela -->
                     <i class="material-icons">add</i>
                 </a>
             </th>
         </tr>
         <?php
-        foreach ($lstMedico as $medico) {
+        foreach ($lstMedicamento as $medicamento) {
         ?>
             <tr>
-                <td><?php echo $medico->getId(); ?></td>
-                <td><?php echo $medico->getNome(); ?></td>
-                <td><?php echo $medico->getCrm(); ?></td>
-                <td><?php echo $medico->getNacimento(); ?></td>
-                <td><?php echo $medico->getTelefone(); ?></td>
-                <td> <a class="btn-floating btn-small waves-effect waves-light blue" onclick="JavaScript:location.href='detalheMedico.php?id=' +
-                     <?php echo $medico->getId(); ?>"> <!-- "?id=..." passsa os valores para o edit -->
+                <td><?php echo $medicamento->getId(); ?></td>
+                <td><?php echo $medicamento->getNome(); ?></td>
+                <td><?php echo $medicamento->getValidade(); ?></td>
+                <td><?php echo $medicamento->getQtde(); ?></td>
+                <td><?php echo $medicamento->getUnidade(); ?></td>
+                <td><?php echo $medicamento->getPreco(); ?></td>
+                <td> <a class="btn-floating btn-small waves-effect waves-light blue" onclick="JavaScript:location.href='detalheMedicamento.php?id=' +
+                     <?php echo $medicamento->getId(); ?>"> <!-- "?id=..." passsa os valores para o edit -->
                         <i class="material-icons">list</i>
                     </a>
 
-                    <a class="btn-floating btn-small waves-effect waves-light orange" onclick="JavaScript:location.href='editarMedico.php?id=' +
-                     <?php echo $medico->getId(); ?>"> <!-- "?id=..." passsa os valores para o edit -->
+                    <a class="btn-floating btn-small waves-effect waves-light orange" onclick="JavaScript:location.href='editarMedicamento.php?id=' +
+                     <?php echo $medicamento->getId(); ?>"> <!-- "?id=..." passsa os valores para o edit -->
                         <i class="material-icons">edit</i>
                     </a>
 
                     <a class="btn-floating btn-small waves-effect waves-light red" type="button" 
-                        onclick="JavaScript:remover( <?php echo $medico->getId();?> , '<?php echo $medico->getNome();?>' );"> <i class="material-icons">delete_forever</i>
+                        onclick="JavaScript:remover( <?php echo $medicamento->getId();?> , '<?php echo $medicamento->getNome();?>' );"> <i class="material-icons">delete_forever</i>
                     </a>
                 </td>
             </tr>
@@ -97,8 +99,8 @@ $lstMedico = $bll->Select();
 
 <script>
     function remover(id, nome) {
-        if (confirm('Excluir o Medico "' + nome + '"?')) {
-            location.href = 'removerMedico.php?id=' + id;
+        if (confirm('Excluir o Medicamento "' + nome + '"?')) {
+            location.href = 'removerMedicamento.php?id=' + id;
         }
     }
 </script>
