@@ -73,7 +73,7 @@ $medico = $bll->SelectId($id);
             </div>
         </div>
         <div class="light-blue darken-4 center col s12">
-            <br> <!-- O type="submit" ele executa o action="recinsoperador.php" existemte -->
+            <br>
             <button class="waves-effect waves-light btn green" type="button" onclick="JavaScript:location.href='editarMedico.php?id=' +
                      <?php echo $medico->getId(); ?>"> Editar <i class="material-icons">edit</i> </button>
 
