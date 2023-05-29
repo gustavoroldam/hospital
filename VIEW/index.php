@@ -8,7 +8,7 @@
     <!-- The above 3 meta tags must come first in the head; any other head content must come after these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="https://cdn3.iconfinder.com/data/icons/happily-colored-snlogo/128/medium.png">
+    <link rel="icon" href="../VIEW/imagens/logo.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Login!</title>
 
@@ -21,20 +21,27 @@
     <!-- My CSS -->
     <link rel="stylesheet" href="css/style.css">
     <!-- jQuery first, then Bootstrap JS. -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="mySpxript.js"></script>
 </head>
 
 <body>
-    <div class="had-container">
 
-        <div class="parallax-container logueo">
+    <nav class="light-blue darken-4">
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo center"><img src="../VIEW/imagens/logo.png"></a>
+        </div>
+    </nav>
+
+    <div class="had-container">
+        <br> <br> <br>
+        <div class="parallax-contai\ner logueo">
             <div class="parallax"><img src="https://alistapart.com/d/438/fig-6--background-blend-mode.jpg"></div>
             <div class="row"><br>
                 <div class="col m8 s8 offset-m2 offset-s2 center">
                     <h4 class="truncate bg-card-user">
-                        <img src="../VIEW/imagens/fema.png" alt="" class="circle responsive-img">
+                        <img src="../VIEW/imagens/logo_branco.jpg" alt="">
                         <div class="row login">
                             <h4>Informe os seus dados de acesso!!!!</h4>
                             <form method="POST" action="login.php" class="col s12">
@@ -53,7 +60,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <button class="btn waves-effect waves-light" type="submit" name="action">Acessar</button>
+                                    <button class="btn waves-effect light-blue darken-4" type="submit" name="action">Entrar</button>
                                 </div>
                             </form>
                         </div>
@@ -64,7 +71,7 @@
     </div>
 
 
-    </div> <!-- fin del .container -->
+    </div>
 
     <?php
     include_once 'footer.php'
@@ -78,14 +85,12 @@
 <script>
     $(document).ready(function() {
         $('.button-collapse').sideNav({
-            menuWidth: 300, // Default is 300
-            edge: 'left', // Choose the horizontal origin
-            closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-            draggable: true, // Choose whether you can drag to open on touch screens,
-            onOpen: function(el) {
-                /* Do Stuff*/ }, // A function to be called when sideNav is opened
-            onClose: function(el) {
-                /* Do Stuff*/ }, // A function to be called when sideNav is closed
+            menuWidth: 300,
+            edge: 'left',
+            closeOnClick: true,
+            draggable: true,
+            onOpen: function(el) {},
+            onClose: function(el) {},
         });
         $('.parallax').parallax();
     });
