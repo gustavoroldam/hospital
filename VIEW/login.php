@@ -9,7 +9,21 @@
 
     $objUsuario = $bll->SelectUser($usuario);
 
-    echo "Usuario: " . $objUsuario->getUsuario() . "<br>";
-    echo "Senha: " . $objUsuario->getSenha() . "<br>";
+    if($objUsuario != null){
+        if (md5($senha) == $objUsuario->getSenha()) {
+            /*echo "Usuário: " . $objUsuario->getUsuario() . "</br>";
+            echo "Senha: " . $objUsuario->getSenha() . "</br>";*/
+
+            session_start();
+            $_SESSION['login'] = $objUsuario->getUsuario();
+            header("location:menu.php");
+        }
+        else{
+            header("location:index.php");
+        }
+    }
+    else{
+        header("location:index.php");
+    }
 
 ?>

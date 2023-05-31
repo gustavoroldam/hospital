@@ -51,6 +51,7 @@
                 <li><a class="dropdown-trigger" href="#!" data-target="medico">Medico<i class="material-icons right">arrow_drop_down</i></a></li>
                 <li><a class="dropdown-trigger" href="#!" data-target="paciente">Paciente<i class="material-icons right">arrow_drop_down</i></a></li>
                 <li><a class="dropdown-trigger" href="#!" data-target="medicamento">Medicamento<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a href="\hospital\VIEW\logout.php">Sair</a></li>
             </ul>
         </div>
     </nav>
