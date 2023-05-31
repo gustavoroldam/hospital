@@ -43,7 +43,7 @@
                     <h4 class="truncate bg-card-user">
                         <img src="../VIEW/imagens/logo_branco.jpg" alt="">
                         <div class="row login">
-                            <h4>Informe os seus dados de acesso!!!!</h4>
+                            <h4>INFORME OS DADOS DE ACESSO!</h4>
                             <form method="POST" action="login.php" class="col s12">
                                 <div class="row">
                                     <div class="input-field col m12 s12">
