@@ -52,6 +52,33 @@ class dalMedico
         return $medico;
     }
 
+    public function SelectNome(string $nome)
+    {
+        $sql = "select * from medico WHERE nome like '%" . $nome . "%' order by nome;";
+
+        $pdo = Conexao::conectar();
+        $query = $pdo->prepare($sql);
+        $result = $pdo->query($sql);
+
+        $lstMedico = null;
+        foreach ($result as $linha) {
+            $medico = new \MODEL\Medico();
+
+            $medico->setId($linha['id']);
+            $medico->setNome($linha['nome']);
+            $medico->setCrm($linha['crm']);
+
+            $data = date_create($linha['nacimento']);
+            $medico->setNacimento(date_format($data, 'd-m-y'));
+            $medico->setTelefone($linha['telefone']);
+
+            $lstMedico[] = $medico;
+        }
+        $con = Conexao::desconectar();
+
+        return $lstMedico;
+    }
+
     public function Delete(int $id)
     {
         $sql = "DELETE FROM medico WHERE id=?";
@@ -75,7 +102,8 @@ class dalMedico
         return $result;
     }
 
-    public function Update(\MODEL\Medico $medico){
+    public function Update(\MODEL\Medico $medico)
+    {
         $sql = "UPDATE medico SET nome=?, crm=?, nacimento=?, telefone=? WHERE id=?";
 
         $pdo = Conexao::conectar();

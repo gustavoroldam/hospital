@@ -19,6 +19,12 @@
             return $dal->SelectId($id);
         }
 
+        public function SelectNome(string $nome){
+            $dalMedico = new dalMedico();
+
+            return $dalMedico->SelectNome($nome);
+        }
+
         public function Delete(int $id){
             $dal = new \DAL\dalMedico();
             $dal->Delete($id);

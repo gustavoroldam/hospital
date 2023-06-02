@@ -52,6 +52,32 @@ class dalMedicamento
         return $medicamento;
     }
 
+    public function SelectNome(string $nome)
+    {
+        $sql = "select * from medicamento WHERE nome like '%" . $nome . "%' order by nome;";
+
+        $pdo = Conexao::conectar();
+        $query = $pdo->prepare($sql);
+        $result = $pdo->query($sql);
+
+        $lstMedicamento = null;
+        foreach ($result as $linha) {
+            $medicamento = new \MODEL\Medicamento();
+
+            $medicamento->setId($linha['id']);
+            $medicamento->setNome($linha['nome']);
+            $medicamento->setValidade($linha['validade']);
+            $medicamento->setQtde($linha['qtde']);
+            $medicamento->setUnidade($linha['unidade']);
+            $medicamento->setPreco($linha['preco']);
+
+            $lstMedicamento[] = $medicamento;
+        }
+        $con = Conexao::desconectar();
+
+        return $lstMedicamento;
+    }
+
     public function Delete(int $id)
     {
         $sql = "DELETE FROM medicamento WHERE id=?";

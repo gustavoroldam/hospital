@@ -1,11 +1,23 @@
 <?php
 
-use BLL\bllMedicamento;
+    use BLL\bllMedicamento;
 
-include_once 'C:\xampp\htdocs\hospital\BLL\bllMedicamento.php';
+    include_once 'C:\xampp\htdocs\hospital\BLL\bllMedicamento.php';
 
-$bll = new \BLL\bllMedicamento();
-$lstMedicamento = $bll->Select();
+    if (isset($_GET['busca'])){
+        $busca = $_GET['busca'];
+    }else{
+        $busca = null;
+    }
+
+    $bll = new \BLL\bllMedicamento();
+
+    if ($busca == null){
+        $lstMedicamento = $bll->Select();
+    }else{
+        $lstMedicamento = $bll->SelectNome($busca);
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +58,18 @@ $lstMedicamento = $bll->Select();
     ?>
 
     <h1 class="titulo">Listar Medicamentos</h1>
+
+    <div class="row ">
+        <div class="input-field">
+            <form action="../Medicamento/lstMedicamento.php" method="GET" id="frmBuscaOperador" class="col s8">
+                <div class="input-field col s8">
+                    <input type="text" placeholder="informe o nome do Operador para ser selicionado" class="form-control col s10" id="txtBusca" name="busca">
+                    <button class="btn waves-effect light-blue darken-4 col m1" type="submit" name="action">
+                        <i class="material-icons right">search</i></button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <table class="striped blue lighten-2">
         <tr>
