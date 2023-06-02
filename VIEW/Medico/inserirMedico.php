@@ -35,23 +35,23 @@
         <div class="row">
             <form action="insertMedico.php" method="POST" id="Medico" class="col s12">
                 <div class="input-field col s8">
-                    <input id="nome" type="text" name="txtNome">
-                    <label for="nome" class="black-text bold">NOME</label>
+                    <input type="text" id="nome" name="txtNome" class="validate" required pattern="[A-Za-zÀ-ú\s]+$" required minlength="5" maxlength="35">
+                    <label for="nome" data-error="Preencha corretamente o campo Nome" class="active black-text bold">Nome</label>
                 </div>
 
                 <div class="input-field col s8">
-                    <input id="crm" type="text" name="txtCrm">
-                    <label for="crm" class="black-text bold">CRM</label>
+                    <input type="text" id="crm" name="txtCrm" class="validate" required pattern="[0-9]+$" required min="11" max="11">
+                    <label for="crm" data-error="Preencha corretamente o campo CRM" class="active black-text bold">CRM</label>
                 </div>
 
                 <div class="input-field col s8">
-                    <input id="nacimento" type="date" name="txtNacimento">
-                    <label for="nacimento" class="black-text bold">Data de Nacimento</label>
+                    <input type="date" id="nacimento" name="txtNacimento" class="validate" required pattern="[0-9]+$" required min="8" max="8">
+                    <label for="nacimento" data-error="Preencha corretamente o campo Data de Nacimento" class="active black-text bold">Data de Nacimento</label>
                 </div>
 
                 <div class="input-field col s8">
-                    <input id="telefone" type="text" name="txtTelefone">
-                    <label for="telefone" class="black-text bold">Telefone</label>
+                    <input type="text" id="telefone" name="txtTelefone" class="validate" required pattern="[0-9]+$" required min="5" max="11">
+                    <label for="telefone" data-error="Preencha corretamente o campo Telefone" class="active black-text bold">Telefone</label>
                 </div>
 
                 <div class="light-blue darken-4 center col s12">
