@@ -52,28 +52,28 @@ $medicamento = $bll->SelectId($id);
                 </div>
 
                 <div class="input-field col s8">
-                    <input id="nome" type="text" name="txtNome" value="<?php echo $medicamento->getNome(); ?>">
-                    <label for="nome" class="black-text bold">NOME</label>
+                    <input type="text" id="nome" name="txtNome" class="validate" required pattern="[A-Za-zÀ-ú\s]+$" required minlength="5" maxlength="50" value="<?php echo $medicamento->getNome(); ?>">
+                    <label for="nome" data-error="Preencha corretamente o campo Nome" class="active black-text bold">Nome</label>
                 </div>
 
                 <div class="input-field col s8">
-                    <input id="validade" type="date" name="txtValidade" value="<?php echo $medicamento->getValidade(); ?>">
-                    <label for="validade" class="black-text bold">VALIDADE</label>
+                    <input type="date" id="validade" name="txtValidade" class="validate" required pattern="[0-9]+$" required min="8" max="8" value="<?php echo $medicamento->getValidade(); ?>">
+                    <label for="validade" data-error="Preencha corretamente o campo Validade" class="active black-text bold">Validade</label>
                 </div>
 
                 <div class="input-field col s8">
-                    <input id="qtde" type="text" name="txtQtde" value="<?php echo $medicamento->getQtde(); ?>">
-                    <label for="qtde" class="black-text bold">QUANTIDADE</label>
+                    <input type="text" id="qtde" name="txtQtde" class="validate" required pattern="[0-9]+$" required min="11" max="11" value="<?php echo $medicamento->getQtde(); ?>">
+                    <label for="qtde" data-error="Preencha corretamente o campo Quantidade" class="active black-text bold">Quantidade</label>
                 </div>
 
                 <div class="input-field col s8">
-                    <input id="unidade" type="text" name="txtUnidade" value="<?php echo $medicamento->getUnidade(); ?>">
-                    <label for="unidade" class="black-text bold">UNIDADE</label>
+                    <input type="text" id="unidade" name="txtUnidade" class="validate" required pattern="[A-Za-zÀ-ú\s]+$" required minlength="1" maxlength="5" value="<?php echo $medicamento->getUnidade(); ?>">
+                    <label for="unidade" data-error="Preencha corretamente o campo Unidade" class="active black-text bold">Unidade</label>
                 </div>
 
                 <div class="input-field col s8">
-                    <input id="preco" type="text" name="txtPreco" value="<?php echo $medicamento->getPreco(); ?>">
-                    <label for="preco" class="black-text bold">PREÇO</label>
+                    <input type="text" id="preco" name="txtPreco" class="validate" required pattern="[0.0-9.0]+$" required min="1" max="9999" value="<?php echo $medicamento->getPreco(); ?>">
+                    <label for="preco" data-error="Preencha corretamente o campo Preço" class="active black-text bold">Preço</label>
                 </div>
 
                 <div class="light-blue darken-4 center col s12">

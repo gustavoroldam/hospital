@@ -45,8 +45,7 @@ class dalMedico
         $medico->setNome($linha['nome']);
         $medico->setCrm($linha['crm']);
 
-        $data = date_create($linha['nacimento']);
-        $medico->setNacimento(date_format($data, 'd-m-y'));
+        $medico->setNacimento($linha['nacimento']);
         $medico->setTelefone($linha['telefone']);
 
         return $medico;
