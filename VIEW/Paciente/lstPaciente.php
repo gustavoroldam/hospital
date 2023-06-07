@@ -1,8 +1,8 @@
 <?php
 
-    use BLL\bllMedico;
+    use BLL\bllPaciente;
 
-    include_once 'C:\xampp\htdocs\hospital\BLL\bllMedico.php';
+    include_once 'C:/xampp/htdocs/hospital/BLL/bllPaciente.php';
 
     if (isset($_GET['busca'])){
         $busca = $_GET['busca'];
@@ -10,12 +10,12 @@
         $busca = null;
     }
 
-    $bll = new \BLL\bllMedico();
+    $bll = new \BLL\bllPaciente();
 
     if ($busca == null){
-        $lstMedico = $bll->Select();
+        $lstPaciente = $bll->Select();
     }else{
-        $lstMedico = $bll->SelectNome($busca);
+        $lstPaciente = $bll->SelectNome($busca);
     }
 
 ?>
@@ -40,7 +40,7 @@
     <link rel="icon" href="../../VIEW/imagens/logo.png">
 
 
-    <title>Listar Medicos</title>
+    <title>Listar Pacientes</title>
 </head>
 
 <style>
@@ -57,13 +57,13 @@
     include_once '../menu.php';
     ?>
 
-    <h1 class="titulo">Listar Medicos</h1>
+    <h1 class="titulo">Listar Pacientes</h1>
 
     <div class="row ">
         <div class="input-field">
-            <form action="../Medico/lstMedico.php" method="GET" id="frmBuscaOperador" class="col s8">
+            <form action="../Paciente/lstPaciente.php" method="GET" id="frmBuscaOperador" class="col s8">
                 <div class="input-field col s8">
-                    <input type="text" placeholder="informe o nome do Medico para ser buscado" class="form-control col s10" id="txtBusca" name="busca">
+                    <input type="text" placeholder="informe o nome do Paciente para ser buscado" class="form-control col s10" id="txtBusca" name="busca">
                     <button class="btn waves-effect light-blue darken-4 col m1" type="submit" name="action">
                         <i class="material-icons right">search</i></button>
                 </div>
@@ -75,17 +75,19 @@
         <tr>
             <th>ID</th>
             <th>NOME</th>
-            <th>CRM</th>
-            <th>DATA DE NACIMENTO</th>
             <th>TELEFONE</th>
+            <th>ENDEREÇO</th>
+            <th>SITUAÇÃO</th>
+            <th>MEDICO</th>
+            <th>MEDICAMENTO</th>
             <th>FUNÇÕES -
-                <a class="btn-floating btn-small waves-effect waves-light green" onclick="JavaScript:location.href='inserirMedico.php'"> <!-- onclick -> Serve para Mudar de Tela -->
+                <a class="btn-floating btn-small waves-effect waves-light green" onclick="JavaScript:location.href='inserirPaciente.php'"> <!-- onclick -> Serve para Mudar de Tela -->
                     <i class="material-icons">add</i>
                 </a>
             </th>
         </tr>
         <?php
-        foreach ($lstMedico as $medico) {
+        foreach ($lstPaciente as $paciente) {
         ?>
             <tr>
                 <td><?php echo $medico->getId(); ?></td>

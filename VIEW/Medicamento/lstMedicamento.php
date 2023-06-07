@@ -63,7 +63,7 @@
         <div class="input-field">
             <form action="../Medicamento/lstMedicamento.php" method="GET" id="frmBuscaOperador" class="col s8">
                 <div class="input-field col s8">
-                    <input type="text" placeholder="informe o nome do Operador para ser selicionado" class="form-control col s10" id="txtBusca" name="busca">
+                    <input type="text" placeholder="informe o nome do Medicamento para ser buscado" class="form-control col s10" id="txtBusca" name="busca">
                     <button class="btn waves-effect light-blue darken-4 col m1" type="submit" name="action">
                         <i class="material-icons right">search</i></button>
                 </div>
