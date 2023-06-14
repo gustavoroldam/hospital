@@ -18,7 +18,7 @@
     <link rel="icon" href="../../VIEW/imagens/logo.png">
 
 
-    <title>Inserir Medico</title>
+    <title>Inserir Paciente</title>
 </head>
 
 <body>
@@ -29,7 +29,7 @@
     <div class="container blue lighten-4 black-text col s12"> <!-- Conteiner / Cor da tabela / col s12 -> tamanho a tabela -->
 
         <div class="center light-blue darken-4 white-text">
-            <h1>Inserir Medico</h1>
+            <h1>Inserir Paciente</h1>
         </div>
 
         <div class="row">

@@ -90,23 +90,25 @@
         foreach ($lstPaciente as $paciente) {
         ?>
             <tr>
-                <td><?php echo $medico->getId(); ?></td>
-                <td><?php echo $medico->getNome(); ?></td>
-                <td><?php echo $medico->getCrm(); ?></td>
-                <td><?php echo $medico->getNacimento(); ?></td>
-                <td><?php echo $medico->getTelefone(); ?></td>
-                <td> <a class="btn-floating btn-small waves-effect waves-light blue" onclick="JavaScript:location.href='detalheMedico.php?id=' +
-                     <?php echo $medico->getId(); ?>"> <!-- "?id=..." passsa os valores para o edit -->
+                <td><?php echo $paciente->getId(); ?></td>
+                <td><?php echo $paciente->getNome(); ?></td>
+                <td><?php echo $paciente->getTelefone(); ?></td>
+                <td><?php echo $paciente->getEndereco(); ?></td>
+                <td><?php echo $paciente->getSituacao(); ?></td>
+                <td><?php echo $paciente->getidMedico(); ?></td>
+                <td><?php echo $paciente->getidMedicamento(); ?></td>
+                <td> <a class="btn-floating btn-small waves-effect waves-light blue" onclick="JavaScript:location.href='detalhePaciente.php?id=' +
+                     <?php echo $paciente->getId(); ?>"> <!-- "?id=..." passsa os valores para o edit -->
                         <i class="material-icons">list</i>
                     </a>
 
-                    <a class="btn-floating btn-small waves-effect waves-light orange" onclick="JavaScript:location.href='editarMedico.php?id=' +
-                     <?php echo $medico->getId(); ?>"> <!-- "?id=..." passsa os valores para o edit -->
+                    <a class="btn-floating btn-small waves-effect waves-light orange" onclick="JavaScript:location.href='editarPaciente.php?id=' +
+                     <?php echo $paciente->getId(); ?>"> <!-- "?id=..." passsa os valores para o edit -->
                         <i class="material-icons">edit</i>
                     </a>
 
                     <a class="btn-floating btn-small waves-effect waves-light red" type="button" 
-                        onclick="JavaScript:remover( <?php echo $medico->getId();?> , '<?php echo $medico->getNome();?>' );"> <i class="material-icons">delete_forever</i>
+                        onclick="JavaScript:remover( <?php echo $paciente->getId();?> , '<?php echo $paciente->getNome();?>' );"> <i class="material-icons">delete_forever</i>
                     </a>
                 </td>
             </tr>
@@ -124,8 +126,8 @@
 
 <script>
     function remover(id, nome) {
-        if (confirm('Excluir o Medico "' + nome + '"?')) {
-            location.href = 'removerMedico.php?id=' + id;
+        if (confirm('Excluir o Paciente "' + nome + '"?')) {
+            location.href = 'removerPaciente.php?id=' + id;
         }
     }
 </script>
