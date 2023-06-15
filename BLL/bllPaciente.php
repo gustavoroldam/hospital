@@ -50,9 +50,8 @@ class bllPaciente
         $medicamento->setQtde($novoValor);
         $bllMedicamento->Update($medicamento);
 
-        $dal = new dalPaciente();
+        $dal = new \DAL\dalPaciente();
         $dal->Insert($paciente);
-        header("location: lstArea.php");
     }
 
     public function Update(\MODEL\Paciente $paciente)

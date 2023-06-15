@@ -1,17 +1,19 @@
 <?php
-    include_once '../../MODEL/Medico.php';
-    include_once '../../BLL/bllMedico.php';
+    include_once '../../MODEL/Paciente.php';
+    include_once '../../BLL/bllPaciente.php';
 
-    $medico = new \MODEL\Medico();
-    $bll = new \BLL\bllMedico();
+    $paciente = new \MODEL\Paciente();
+    $bll = new \BLL\bllPaciente();
 
-    $medico->setNome($_POST['txtNome']);
-    $medico->setCrm($_POST['txtCrm']);
-    $medico->setNacimento($_POST['txtNacimento']);
-    $medico->setTelefone($_POST['txtTelefone']);
+    $paciente->setNome($_POST['txtNome']);
+    $paciente->setTelefone($_POST['txtTelefone']);
+    $paciente->setEndereco($_POST['txtEndereco']);
+    $paciente->setSituacao($_POST['txtSituacao']);
+    $paciente->setIdMedico($_POST['txtIdMedico']);
+    $paciente->setIdMedicamento($_POST['txtIdMedicamento']);
 
-    $bll->Insert($medico);
+    $bll->Insert($paciente);
 
-    header("location: lstMedico.php");
+    header("location: lstPaciente.php");
 
 ?>

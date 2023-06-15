@@ -33,25 +33,35 @@
         </div>
 
         <div class="row">
-            <form action="insertMedico.php" method="POST" id="Medico" class="col s12">
+            <form action="insertPaciente.php" method="POST" id="Paciente" class="col s12">
                 <div class="input-field col s8">
                     <input type="text" id="nome" name="txtNome" class="validate" required pattern="[A-Za-zÀ-ú\s]+$" required minlength="5" maxlength="35">
                     <label for="nome" data-error="Preencha corretamente o campo Nome" class="active black-text bold">Nome</label>
                 </div>
 
                 <div class="input-field col s8">
-                    <input type="text" id="crm" name="txtCrm" class="validate" required pattern="[0-9]+$" required min="11" max="11">
-                    <label for="crm" data-error="Preencha corretamente o campo CRM" class="active black-text bold">CRM</label>
-                </div>
-
-                <div class="input-field col s8">
-                    <input type="date" id="nacimento" name="txtNacimento" class="validate" required pattern="[0-9]+$" required min="8" max="8">
-                    <label for="nacimento" data-error="Preencha corretamente o campo Data de Nacimento" class="active black-text bold">Data de Nacimento</label>
-                </div>
-
-                <div class="input-field col s8">
                     <input type="text" id="telefone" name="txtTelefone" class="validate" required pattern="[0-9]+$" required min="5" max="11">
                     <label for="telefone" data-error="Preencha corretamente o campo Telefone" class="active black-text bold">Telefone</label>
+                </div>
+
+                <div class="input-field col s8">
+                    <input type="text" id="endereco" name="txtEndereco" class="validate" required pattern="[A-Za-zÀ-ú\s]+$" required minlength="5" maxlength="35">
+                    <label for="endereco" data-error="Preencha corretamente o campo Endereço" class="active black-text bold">Endereço</label>
+                </div>
+
+                <div class="input-field col s8">
+                    <input type="text" id="situacao" name="txtSituacao" class="validate" required pattern="[A-Za-zÀ-ú\s]+$" required min="5" max="35">
+                    <label for="situacao" data-error="Preencha corretamente o campo Situação" class="active black-text bold">Situação</label>
+                </div>
+
+                <div class="input-field col s8">
+                    <input type="text" id="idMedico" name="txtIdMedico" class="validate" required pattern="[0-9]+$" required min="5" max="11">
+                    <label for="idMedico" data-error="Preencha corretamente o campo Medico" class="active black-text bold">Medico</label>
+                </div>
+
+                <div class="input-field col s8">
+                    <input type="text" id="idMedicamento" name="txtIdMedicamento" class="validate" required pattern="[0-9]+$" required min="5" max="11">
+                    <label for="idMedicamento" data-error="Preencha corretamente o campo Medicamento" class="active black-text bold">Medicamento</label>
                 </div>
 
                 <div class="light-blue darken-4 center col s12">
@@ -60,14 +70,17 @@
 
                     <button class="waves-effect waves-light btn red" type="reset"> Limpar <i class="material-icons">clear_all</i> </button>
 
-                    <button class="waves-effect waves-light btn amber darken-2" type="button" onclick="JavaScript:location.href='lstMedico.php?'"> Voltar <i class="material-icons">arrow_back</i> </button>
+                    <button class="waves-effect waves-light btn amber darken-2" type="button" onclick="JavaScript:location.href='lstPaciente.php?'"> Voltar <i class="material-icons">arrow_back</i> </button>
                     <br>
                     <br>
                 </div>
             </form>
         </div>
-
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <?php
     include_once '../footer.php';
