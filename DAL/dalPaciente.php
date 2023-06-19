@@ -5,11 +5,9 @@ namespace DAL;
 include_once 'C:\xampp\htdocs\hospital\DAL\conexao.php';
 include_once 'C:\xampp\htdocs\hospital\MODEL\paciente.php';
 
-class dalPaciente
-{
-    public function Select()
-    {
-        $sql = "select * from paciente;";
+class dalPaciente{
+    public function Select(){
+        $sql = "SELECT paciente.id, paciente.nome, paciente.telefone, paciente.endereco, paciente.situacao, paciente.idMedico, paciente.idMedicamento, medico.nome AS medico_nome, medicamento.nome AS medicamento_nome FROM paciente INNER JOIN medico ON(paciente.idMedico = medico.id) INNER JOIN medicamento ON(paciente.idMedicamento = medicamento.id);";
         $con = Conexao::conectar();
         $result = $con->query($sql);
         $con = Conexao::desconectar();
@@ -24,14 +22,15 @@ class dalPaciente
             $paciente->setSituacao($linha['situacao']);
             $paciente->setIdMedico($linha['idMedico']);
             $paciente->setIdMedicamento($linha['idMedicamento']);
+            $paciente->setNomeMedico($linha['medico_nome']);
+            $paciente->setNomeMedicamento($linha['medicamento_nome']);
 
             $lstPaciente[] = $paciente;
         }
         return $lstPaciente;
     }
 
-    public function SelectId(int $id)
-    {
+    public function SelectId(int $id){
         $sql = "select * from paciente where id=?;";
         $pdo = Conexao::conectar();
         $query = $pdo->prepare($sql);
@@ -95,7 +94,7 @@ class dalPaciente
     {
         $con = Conexao::conectar();
 
-        $sql = "INSERT INTO paciente (nome, telefone, endereco, situacao, idMedico, idMedicamento) VALUES ('{$paciente->getNome()}', '{$paciente->getTelefone()}', '{$paciente->getSituacao()}', '{$paciente->getIdMedico()}', '{$paciente->getIdMedicamento()}');";
+        $sql = "INSERT INTO paciente (nome, telefone, endereco, situacao, idMedico, idMedicamento) VALUES ('{$paciente->getNome()}', '{$paciente->getTelefone()}', '{$paciente->getEndereco()}', '{$paciente->getSituacao()}', '{$paciente->getIdMedico()}', '{$paciente->getIdMedicamento()}');";
 
         $result = $con->query($sql);
         $con = Conexao::desconectar();
@@ -109,7 +108,7 @@ class dalPaciente
         $pdo = Conexao::conectar();
         $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         $query = $pdo->prepare($sql);
-        $result = $query->execute(array($paciente->getNome(), $paciente->getTelefone(), $paciente->getSituacao(), $paciente->getIdMedico(), $paciente->getIdMedicamento(), $paciente->getId()));
+        $result = $query->execute(array($paciente->getNome(), $paciente->getTelefone(), $paciente->getEndereco(), $paciente->getSituacao(), $paciente->getIdMedico(), $paciente->getIdMedicamento(), $paciente->getId()));
         $con = Conexao::desconectar();
         return $result;
     }

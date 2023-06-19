@@ -10,6 +10,8 @@
         private ?string $situacao;
         private ?int $idMedico;
         private ?int $idMedicamento;
+        private ?string $NomeMedico;
+        private ?string $NomeMedicamento;
 
         public function __construct(){}
 
@@ -60,6 +62,20 @@
         }
         public function setIdMedicamento(int $idMedicamento){
             $this->idMedicamento = $idMedicamento;
+        }
+
+        public function getNomeMedico(){
+            return $this->NomeMedico;
+        }
+        public function setNomeMedico(string $NomeMedico){
+            $this->NomeMedico = $NomeMedico;
+        }
+
+        public function getNomeMedicamento(){
+            return $this->NomeMedicamento;
+        }
+        public function setNomeMedicamento(string $NomeMedicamento){
+            $this->NomeMedicamento = $NomeMedicamento;
         }
     }
 

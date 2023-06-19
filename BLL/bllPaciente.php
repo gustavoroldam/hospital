@@ -52,10 +52,21 @@ class bllPaciente
 
         $dal = new \DAL\dalPaciente();
         $dal->Insert($paciente);
+        header("location: lstArea.php");
     }
 
-    public function Update(\MODEL\Paciente $paciente)
+    public function Update(\MODEL\Paciente $paciente, bool $troca)
     {
+
+        if ($troca == true) {
+            $bllMedicamento = new \bll\bllMedicamento();
+            $medicamento = new \MODEL\Medicamento();
+            $medicamento = $bllMedicamento->SelectID($paciente->getIdMedicamento());
+            $novoValor = $medicamento->getQtde() - 1;
+            $medicamento->setQtde($novoValor);
+            $bllMedicamento->Update($medicamento);
+        }
+
         $dal = new \DAL\dalPaciente();
         $dal->Update($paciente);
     }

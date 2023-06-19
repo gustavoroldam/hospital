@@ -95,8 +95,8 @@
                 <td><?php echo $paciente->getTelefone(); ?></td>
                 <td><?php echo $paciente->getEndereco(); ?></td>
                 <td><?php echo $paciente->getSituacao(); ?></td>
-                <td><?php echo $paciente->getidMedico(); ?></td>
-                <td><?php echo $paciente->getidMedicamento(); ?></td>
+                <td><?php echo $paciente->getIdMedico(); ?> - <?php echo $paciente->getNomeMedico(); ?> </td>
+                <td><?php echo $paciente->getIdMedicamento(); ?> - <?php echo $paciente->getNomeMedicamento(); ?></td>
                 <td> <a class="btn-floating btn-small waves-effect waves-light blue" onclick="JavaScript:location.href='detalhePaciente.php?id=' +
                      <?php echo $paciente->getId(); ?>"> <!-- "?id=..." passsa os valores para o edit -->
                         <i class="material-icons">list</i>

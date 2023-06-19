@@ -1,6 +1,8 @@
 <?php
     include_once '../../MODEL/Paciente.php';
     include_once '../../BLL/bllPaciente.php';
+    include_once '../../BLL/bllMedicamento.php';
+    include_once '../../BLL/bllMedico.php';
 
     $paciente = new \MODEL\Paciente();
     $bll = new \BLL\bllPaciente();

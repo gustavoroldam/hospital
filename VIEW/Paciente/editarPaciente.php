@@ -1,12 +1,12 @@
 <?php
 // Pegar os Valores da Tabela
-include_once '../../BLL/bllMedico.php';
+include_once '../../BLL/bllPaciente.php';
 
 $id = $_GET['id'];
 
-$bll = new \BLL\bllMedico();
+$bll = new \BLL\bllPaciente();
 
-$medico = $bll->SelectId($id);
+$paciente = $bll->SelectId($id);
 
 ?>
 
@@ -18,6 +18,8 @@ $medico = $bll->SelectId($id);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
@@ -27,48 +29,57 @@ $medico = $bll->SelectId($id);
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" href="../../VIEW/imagens/logo.png">
 
-    <title>Editar Medico</title>
+
+    <title>Editar Paciente</title>
 </head>
 
 <body>
-
     <?php
-    //include_once '\servicos\VIEW\menu.php';
-    include_once '../menu.php'; // Para o menu aparecer em todos
+    include_once '../menu.php';
     ?>
 
     <div class="container blue lighten-4 black-text col s12"> <!-- Conteiner / Cor da tabela / col s12 -> tamanho a tabela -->
 
         <div class="center light-blue darken-4 white-text">
-            <h1>Editar Medico</h1>
+            <h1>Editar Paciente</h1>
         </div>
 
         <div class="row">
-            <form action="updateMedico.php" method="POST" id="Medico" class="col s12">
+            <form action="updatePaciente.php" method="POST" id="Paciente" class="col s12">
                 <div class="input-field col s8">
-                    <input type="hidden" name="txtId" value="<?php echo $medico->getId(); ?>">
-                    <label for="id" class="black-text bold">Id: <?php echo $medico->getId(); ?></label>
+                    <input type="hidden" name="txtId" value="<?php echo $paciente->getId(); ?>">
+                    <label for="id" class="black-text bold">Id: <?php echo $paciente->getId(); ?></label>
                     <br> <br>
                 </div>
 
                 <div class="input-field col s8">
-                    <input type="text" id="nome" name="txtNome" class="validate" required pattern="[A-Za-zÀ-ú\s]+$" required minlength="5" maxlength="35" value="<?php echo $medico->getNome(); ?>">
+                    <input type="text" id="nome" name="txtNome" class="validate" required pattern="[A-Za-zÀ-ú\s]+$" required minlength="5" maxlength="35" value="<?php echo $paciente->getNome(); ?>">
                     <label for="nome" data-error="Preencha corretamente o campo Nome" class="active black-text bold">Nome</label>
                 </div>
 
                 <div class="input-field col s8">
-                    <input type="text" id="crm" name="txtCrm" class="validate" required pattern="[0-9]+$" required min="11" max="11" value="<?php echo $medico->getCrm(); ?>">
-                    <label for="crm" data-error="Preencha corretamente o campo CRM" class="active black-text bold">CRM</label>
-                </div>
-
-                <div class="input-field col s8">
-                    <input type="date" id="nacimento" name="txtNacimento" class="validate" required pattern="[0-9]+$" required min="8" max="8" value="<?php echo $medico->getNacimento(); ?>">
-                    <label for="nacimento" data-error="Preencha corretamente o campo Data de Nacimento" class="active black-text bold">Data de Nacimento</label>
-                </div>
-
-                <div class="input-field col s8">
-                    <input type="text" id="telefone" name="txtTelefone" class="validate" required pattern="[0-9]+$" required min="5" max="11" value="<?php echo $medico->getTelefone(); ?>">
+                    <input type="text" id="telefone" name="txtTelefone" class="validate" required pattern="[0-9]+$" required min="5" max="11" value="<?php echo $paciente->getTelefone(); ?>">
                     <label for="telefone" data-error="Preencha corretamente o campo Telefone" class="active black-text bold">Telefone</label>
+                </div>
+
+                <div class="input-field col s8">
+                    <input type="text" id="endereco" name="txtEndereco" class="validate" required pattern="[A-Za-zÀ-ú\s]+$" required minlength="5" maxlength="35" value="<?php echo $paciente->getEndereco(); ?>">
+                    <label for="endereco" data-error="Preencha corretamente o campo Endereço" class="active black-text bold">Endereço</label>
+                </div>
+
+                <div class="input-field col s8">
+                    <input type="text" id="situacao" name="txtSituacao" class="validate" required pattern="[A-Za-zÀ-ú\s]+$" required min="5" max="35" value="<?php echo $paciente->getSituacao(); ?>">
+                    <label for="situacao" data-error="Preencha corretamente o campo Situação" class="active black-text bold">Situação</label>
+                </div>
+
+                <div class="input-field col s8">
+                    <input type="text" id="idMedico" name="txtIdMedico" class="validate" required pattern="[0-9]+$" required min="5" max="11" value="<?php echo $paciente->getIdMedico(); ?>">
+                    <label for="idMedico" data-error="Preencha corretamente o campo Medico" class="active black-text bold">Medico</label>
+                </div>
+
+                <div class="input-field col s8">
+                    <input type="text" id="idMedicamento" name="txtIdMedicamento" class="validate" required pattern="[0-9]+$" required min="5" max="11" value="<?php echo $paciente->getIdMedicamento(); ?>">
+                    <label for="idMedicamento" data-error="Preencha corretamente o campo Medicamento" class="active black-text bold">Medicamento</label>
                 </div>
 
                 <div class="light-blue darken-4 center col s12">
@@ -77,19 +88,21 @@ $medico = $bll->SelectId($id);
 
                     <button class="waves-effect waves-light btn red" type="reset"> Limpar <i class="material-icons">clear_all</i> </button>
 
-                    <button class="waves-effect waves-light btn amber darken-2" type="button" onclick="JavaScript:location.href='lstMedico.php?'"> Voltar <i class="material-icons">arrow_back</i> </button>
+                    <button class="waves-effect waves-light btn amber darken-2" type="button" onclick="JavaScript:location.href='lstPaciente.php?'"> Voltar <i class="material-icons">arrow_back</i> </button>
                     <br>
                     <br>
                 </div>
             </form>
         </div>
-
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <?php
-    include_once '../footer.php'; // Para o menu aparecer em todos
+    include_once '../footer.php';
     ?>
-
 </body>
 
 </html>

@@ -1,12 +1,12 @@
 <?php
 
-include_once '../../BLL/bllMedico.php';
+include_once '../../BLL/bllPaciente.php';
 
 $id = $_GET['id'];
 
-$bll = new \BLL\bllMedico();
+$bll = new \BLL\bllPaciente();
 
-$medico = $bll->SelectId($id);
+$paciente = $bll->SelectId($id);
 
 ?>
 
@@ -30,7 +30,7 @@ $medico = $bll->SelectId($id);
     <link rel="icon" href="../../VIEW/imagens/logo.png">
 
 
-    <title>Detalhes Medico</title>
+    <title>Detalhes Paciente</title>
 </head>
 
 <body>
@@ -41,46 +41,56 @@ $medico = $bll->SelectId($id);
     <div class="container blue lighten-4 black-text col s12"> <!-- Conteiner / Cor da tabela / col s12 -> tamanho a tabela -->
 
         <div class="center light-blue darken-4 white-text">
-            <h1>Detalhes do Medico</h1>
+            <h1>Detalhes do Paciente</h1>
         </div>
 
         <div class="row">
             <div class="container">
                 <div class="input-field col s8">
-                    <input type="hidden" name="txtId" value="<?php echo $medico->getId(); ?>">
-                    <label for="id" class="black-text bold"><h5>Id: <?php echo $medico->getId(); ?></h5></label>
+                    <input type="hidden" name="txtId" value="<?php echo $paciente->getId(); ?>">
+                    <label for="id" class="black-text bold"><h5>Id: <?php echo $paciente->getId(); ?></h5></label>
                     <br>
                 </div>
 
                 <div class="input-field col s8">
-                    <label for="nome" class="black-text bold"><h5>Nome: <?php echo $medico->getNome(); ?></h5></label>
+                    <label for="nome" class="black-text bold"><h5>Nome: <?php echo $paciente->getNome(); ?></h5></label>
                     <br>
                 </div>
 
                 <div class="input-field col s8">
-                    <label for="crm" class="black-text bold"><h5>CRM: <?php echo $medico->getCrm(); ?></h5></label>
+                    <label for="crm" class="black-text bold"><h5>Telefone: <?php echo $paciente->getTelefone(); ?></h5></label>
                     <br>
                 </div>
 
                 <div class="input-field col s8">
-                    <label for="nacimento" class="black-text bold"><h5>Data de Nacimento: <?php echo $medico->getNacimento(); ?></h5></label>
+                    <label for="nacimento" class="black-text bold"><h5>Endereço: <?php echo $paciente->getEndereco(); ?></h5></label>
                     <br>
                 </div>
 
                 <div class="input-field col s8">
-                    <label for="telefone" class="black-text bold"><h5>Telefone: <?php echo $medico->getTelefone(); ?></h5></label>
+                    <label for="nacimento" class="black-text bold"><h5>Situação: <?php echo $paciente->getSituacao(); ?></h5></label>
+                    <br>
+                </div>
+
+                <div class="input-field col s8">
+                    <label for="nacimento" class="black-text bold"><h5>Medico: <?php echo $paciente->getIdMedico(); ?></h5></label>
+                    <br>
+                </div>
+
+                <div class="input-field col s8">
+                    <label for="telefone" class="black-text bold"><h5>Medicamento: <?php echo $paciente->getIdMedicamento(); ?></h5></label>
                     <br> <br>
                 </div>
             </div>
         </div>
         <div class="light-blue darken-4 center col s12">
             <br>
-            <button class="waves-effect waves-light btn green" type="button" onclick="JavaScript:location.href='editarMedico.php?id=' +
-                     <?php echo $medico->getId(); ?>"> Editar <i class="material-icons">edit</i> </button>
+            <button class="waves-effect waves-light btn green" type="button" onclick="JavaScript:location.href='editarPaciente.php?id=' +
+                     <?php echo $paciente->getId(); ?>"> Editar <i class="material-icons">edit</i> </button>
 
-            <button class="waves-effect waves-light btn red" type="button" onclick="JavaScript:remover( <?php echo $medico->getId(); ?> , '<?php echo $medico->getNome(); ?>' );"> Excluir <i class="material-icons">delete_forever</i> </button>
+            <button class="waves-effect waves-light btn red" type="button" onclick="JavaScript:remover( <?php echo $paciente->getId(); ?> , '<?php echo $paciente->getNome(); ?>' );"> Excluir <i class="material-icons">delete_forever</i> </button>
 
-            <button class="waves-effect waves-light btn amber darken-2" type="button" onclick="JavaScript:location.href='lstMedico.php?'"> Voltar <i class="material-icons">arrow_back</i> </button>
+            <button class="waves-effect waves-light btn amber darken-2" type="button" onclick="JavaScript:location.href='lstPaciente.php?'"> Voltar <i class="material-icons">arrow_back</i> </button>
             <br>
             <br>
         </div>
@@ -95,8 +105,8 @@ $medico = $bll->SelectId($id);
 
 <script>
     function remover(id, nome) {
-        if (confirm('Excluir o Medico "' + nome + '"?')) {
-            location.href = 'removerMedico.php?id=' + id;
+        if (confirm('Excluir o Paciente "' + nome + '"?')) {
+            location.href = 'removerPaciente.php?id=' + id;
         }
     }
 </script>

@@ -1,17 +1,28 @@
 <?php
-    include_once '../../MODEL/medico.php';
-    include_once '../../BLL/bllMedico.php';
+    include_once '../../MODEL/Paciente.php';
+    include_once '../../BLL/bllPaciente.php';
 
-    $medico = new \MODEL\Medico();
-    $bll = new \BLL\bllMedico();
+    $paciente = new \MODEL\Paciente();
+    $bll = new \BLL\bllPaciente();
 
-    $medico->setId($_POST['txtId']);
-    $medico->setNome($_POST['txtNome']);
-    $medico->setCrm($_POST['txtCrm']);
-    $medico->setNacimento($_POST['txtNacimento']);
-    $medico->setTelefone($_POST['txtTelefone']);
+    $medicamento = $_POST['txtIdMedicamento'];
+    $paciente->setId($_POST['txtId']);
+    $paciente = $bll->SelectId($paciente->getId());
 
-    $bll->Update($medico);
+    if($medicamento == $paciente->getIdMedicamento()){
+        $troca = false;
+    }else{
+        $troca = true;
+    }
 
-    header("location: lstMedico.php");
+    $paciente->setNome($_POST['txtNome']);
+    $paciente->setTelefone($_POST['txtTelefone']);
+    $paciente->setEndereco($_POST['txtEndereco']);
+    $paciente->setSituacao($_POST['txtSituacao']);
+    $paciente->setIdMedico($_POST['txtIdMedico']);
+    $paciente->setIdMedicamento($medicamento);
+
+    $bll->Update($paciente, $troca);
+
+    header("location: lstPaciente.php");
 ?>
