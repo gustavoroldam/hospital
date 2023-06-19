@@ -16,7 +16,7 @@
 
             session_start();
             $_SESSION['login'] = $objUsuario->getUsuario();
-            header("location:menu.php");
+            header("location:PagPadrao/pagpadrao.php");
         }
         else{
             header("location:index.php");
