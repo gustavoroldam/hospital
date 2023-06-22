@@ -5,6 +5,12 @@ namespace DAL;
 include_once 'C:\xampp\htdocs\hospital\DAL\conexao.php';
 include_once 'C:\xampp\htdocs\hospital\MODEL\paciente.php';
 
+include_once 'C:/xampp/htdocs/hospital/MODEL/medicamento.php';
+include_once 'C:/xampp/htdocs/hospital/BLL/bllMedicamento.php';
+
+include_once 'C:/xampp/htdocs/hospital/MODEL/medico.php';
+include_once 'C:/xampp/htdocs/hospital/BLL/bllMedico.php';
+
 class dalPaciente{
     public function Select(){
         $sql = "SELECT paciente.id, paciente.nome, paciente.telefone, paciente.endereco, paciente.situacao, paciente.idMedico, paciente.idMedicamento, medico.nome AS medico_nome, medicamento.nome AS medicamento_nome FROM paciente INNER JOIN medico ON(paciente.idMedico = medico.id) INNER JOIN medicamento ON(paciente.idMedicamento = medicamento.id);";
@@ -70,6 +76,18 @@ class dalPaciente{
             $paciente->setSituacao($linha['situacao']);
             $paciente->setIdMedico($linha['idMedico']);
             $paciente->setIdMedicamento($linha['idMedicamento']);
+
+            $bllMedicamento = new \bll\bllMedicamento();
+            $medicamento = new \MODEL\Medicamento();
+
+            $medicamento = $bllMedicamento->SelectID($paciente->getIdMedicamento());
+            $paciente->setNomeMedicamento($medicamento->getNome());
+
+            $bllMedico = new \bll\bllMedico();
+            $medico = new \MODEL\Medico();
+
+            $medico = $bllMedico->SelectID($paciente->getIdMedico());
+            $paciente->setNomeMedico($medicamento->getNome());
 
             $lstPaciente[] = $paciente;
         }
